@@ -1,0 +1,91 @@
+.AssesmentContainer {
+  display: flex;
+  width: 500px;
+  border: 1px solid blue;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.AssesmentContainer h4 {
+  margin-left: 25px;
+}
+.assesmentList {
+  display: flex;
+  width: 1500px;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 100px;
+  justify-content: space-around;
+}
+.createAssignmentLine {
+  margin: 25px;
+  display: flex;
+  gap: 15px;
+}
+.createAssignmentLine input,
+.createAssignmentLine select,
+.createQuestionType button {
+  margin-left: 10px;
+}
+.createQuestionType {
+  display: flex;
+  margin: 20px;
+  justify-content: space-between;
+}
+.attempts {
+  margin: 20px;
+}
+.choiceFlex {
+  display: flex;
+  gap: 80px;
+  margin: 20px 20px;
+}
+.multipleDiv {
+  text-align: start;
+  margin: 35px 20px;
+}
+.multipleDiv input,
+.shortAnswerDiv input,
+.booleanDiv input,
+.essayDiv input,
+.instructions textarea,
+.instructions input {
+  margin-top: 10px;
+  padding: 10px 5px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.shortAnswerDiv,
+.essayDiv,
+.booleanDiv,
+.instructions {
+  margin: 20px 20px;
+  text-align: start;
+}
+.createLastLine {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+.createLastLine .create {
+  background-color: rgb(28, 28, 205);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  align-items: center;
+}
+.createLastLine button,
+.createLastLine p {
+  margin: 20px 5px;
+}
+.radioDiv {
+  display: flex;
+  gap: 50px;
+}
+
+.assesment p {
+  display: inline;
+  position: relative;
+  top: 5px;
+  right: 50px;
+}

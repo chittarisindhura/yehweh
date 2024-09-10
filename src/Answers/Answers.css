@@ -1,0 +1,92 @@
+.assesmentQuestionsContainer {
+  text-align: start;
+  margin: 15px;
+}
+.questionsHeader {
+  display: flex;
+}
+.questionsHeader h2 {
+  margin: auto;
+}
+.questionsHeader h4 {
+  margin-right: 25px;
+}
+.timeLimit {
+  text-align: right;
+}
+.multpleChoiceContainer input,
+.shortAnswerQuestions,
+.essayAnswerQuestions {
+  margin-bottom: 15px;
+}
+.shortAnswerQuestions input {
+  margin-left: 10px;
+}
+.essayAnswerQuestions textarea,
+.feedback textarea {
+  margin-top: 10px;
+  padding: 5px;
+}
+.feedback {
+  margin-top: 25px;
+  padding: 5px;
+}
+.questionsSubmit {
+  text-align: center;
+}
+.questionsSubmit button {
+  background-color: rgb(40, 40, 207);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 25px;
+}
+.assesmentAnsContainer {
+  border: 1px solid rgb(188, 182, 250);
+  width: 600px;
+  margin: 15px 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+.assesmentAnswer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.answerType {
+  color: blue;
+}
+
+.AnswerDetailsHeader {
+  display: flex;
+  align-items: baseline;
+}
+
+.AnswerDetailsHeader h1 {
+  color: blue;
+  margin: auto;
+}
+.AnswerDetailsHeader h3 {
+  color: blue;
+  margin-right: 30px;
+  margin: 10px;
+}
+.multipleChoice,
+.shortAnswer,
+.essayAnswer,
+.booleanAnswer {
+  text-align: left;
+  margin: 30px 0 50px 15px;
+}
+.multipleChoice h3,
+.shortAnswer h3,
+.essayAnswer h3,
+.booleanAnswer h3 {
+  color: rgb(77, 77, 255);
+}

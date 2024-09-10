@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import AssesmentsContainer from "./AsssesmentsContainer";
 const Assesments = () => {
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = "https://yehwehnode.vercel.app/";
   const [assesment, setAssesment] = useState("");
   useEffect(() => {
     getAssignments();

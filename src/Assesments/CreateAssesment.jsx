@@ -34,7 +34,7 @@ const CreateAssesments = () => {
       type: "essay",
     },
   ];
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = "https://yehwehnode.vercel.app/";
   const [title, setTitle] = useState("");
   const [survey, setSurvey] = useState("");
   const [tasks, setTasks] = useState("");

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AssesmentAnswer from "./AssesmentAnswer";
 import "./Answers.css";
 const DisplayAnswersPage = () => {
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = "https://yehwehnode.vercel.app/";
   const [assesmentAnswer, setAssesmentAnswer] = useState("");
   const navigate = useNavigate();
   useEffect(() => {

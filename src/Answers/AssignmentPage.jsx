@@ -143,7 +143,8 @@ const AssignmentPage = () => {
     }
   };
   const handleSubmit = async (title, type) => {
-    const baseUrl = "http://localhost:5000/assesment/sendAssesmentAnswer";
+    const baseUrl = "https://yehwehnode.vercel.app/";
+    const nodeUrl = `${baseUrl}/assesment/sendAssesmentAnswer`;
     for (let [key, value] of Object.entries(multipleAnswer)) {
       if (value.multipleAnswer) {
         multipleArray.push(value);
@@ -173,7 +174,7 @@ const AssignmentPage = () => {
       essayAnswer: essayArray,
       booleanAnswer: booleanArray,
     };
-    const data = await axios.post(baseUrl, assesmentAnswerData);
+    const data = await axios.post(nodeUrl, assesmentAnswerData);
     if (data.status == 200) {
       setTasks([...tasks, assesmentAnswerData]);
       navigate("/");

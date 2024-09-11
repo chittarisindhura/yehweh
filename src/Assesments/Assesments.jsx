@@ -11,7 +11,9 @@ const Assesments = () => {
   console.log("get", assesment);
 
   const getAssignments = async () => {
-    const res = await axios.get(`${baseUrl}/assesment/get`);
+    const res = await axios.get(`${baseUrl}/assesment/get`, {
+      headers: { "Access-Control-Allow-Origin": "*" },
+    });
     setAssesment(res.data);
   };
 

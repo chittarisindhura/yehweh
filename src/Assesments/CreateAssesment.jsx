@@ -1,6 +1,7 @@
 import react, { useState } from "react";
 import axios from "axios";
 import MultipleChoice from "./MulipleQuestionCreation";
+import { v4 as uuidv4 } from "uuid";
 import Essay from "./Essay";
 import ShortAnswer from "./ShortAnswer";
 import Boolean from "./Boolean";
@@ -34,12 +35,12 @@ const CreateAssesments = () => {
       type: "essay",
     },
   ];
-  const baseUrl = "https://yehwehnode.vercel.app/";
+  const baseUrl = "https://yehwehnode.vercel.app";
+  const baseUrl1 = "http://localhost:5000";
   const [title, setTitle] = useState("");
   const [survey, setSurvey] = useState("");
   const [tasks, setTasks] = useState("");
   const [questions, setQuestions] = useState("");
-  const [questionType, setQuestionType] = useState("");
   const [multipleChoice, setMultipleChoice] = useState(false);
   const [essay, setEssay] = useState(false);
   const [shortAnswer, setShortAnswer] = useState(false);
@@ -58,7 +59,7 @@ const CreateAssesments = () => {
   const [essayArray, setEssayArray] = useState([]);
   const [array, setArray] = useState(false);
 
-  const handleQuestionChange = (multipleId, titleValue, mid) => {
+  const handleQuestionChange = (multipleId, titleValue) => {
     setMultipleQuestion(
       multipleQuestion.map((multiple) => {
         if (titleValue) {
@@ -189,7 +190,7 @@ const CreateAssesments = () => {
     );
   };
   const questionTypeSelect = (e) => {
-    if (e.target.value == "multiple choice") {
+    if (e.target.value === "multiple choice") {
       setQuestionTasks([questionTasks.length, ...questionTasks]);
       setMultipleChoice(true);
       if (multipleQuestion && multipleQuestion.length > 0) {
@@ -251,16 +252,19 @@ const CreateAssesments = () => {
             if (key === "booleanQuestion") {
               if (data.booleanQuestion) {
                 booleanArray.push(data);
+                return booleanArray;
               } else {
                 return booleanArray;
               }
             }
           }
+          return booleanArray;
         });
       }
     }
   };
-  const sendAssignment = async (dataId, dataValue) => {
+  console.log("m", multipleArray, baseUrl);
+  const sendAssignment = async () => {
     const ApiUrl = `${baseUrl}/assesment/create`;
     const type = survey ? survey : "Quizz";
     if (multipleQuestion && multipleQuestion.length > 0) {
@@ -330,23 +334,24 @@ const CreateAssesments = () => {
     for (let id in booleanArray) {
       let array = booleanArray[id];
       array.id = id;
-      const assesmentData = {
-        title: title,
-        type: type,
-        questionBank: questions,
-        questionType: questionType,
-        multipleChoice: multipleArray,
-        shortAnswer: shortArray,
-        essay: essayArray,
-        boolean: booleanArray,
-      };
-      const res = await axios.post(ApiUrl, assesmentData);
-      if (res.status == 200) {
-        setTasks([...tasks, assesmentData]);
-      }
+    }
+    const assesmentData = {
+      title: title,
+      type: type,
+      questionBank: questions,
+      multipleChoice: multipleArray,
+      shortAnswer: shortArray,
+      essay: essayArray,
+      boolean: booleanArray,
+    };
+    console.log("res", assesmentData);
+    const res = await axios.post(ApiUrl, assesmentData);
+    if (res.status == 200) {
+      setTasks([...tasks, assesmentData]);
+    } else {
+      console.log("error");
     }
   };
-
   return (
     <div className="createAssignment">
       <h1>Create New Assesments </h1>

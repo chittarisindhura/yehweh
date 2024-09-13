@@ -8,7 +8,6 @@ const MultipleChoice = ({
   handleChoice4Change,
   multipleQuestions,
 }) => {
-  let mid;
   return multipleQuestions.map((multiple, id) => (
     <div className="multipleDiv" key={multiple.id}>
       <label id="labeldiv">Enter Multiple Choice Question </label>
@@ -19,7 +18,7 @@ const MultipleChoice = ({
         placeholder="Enter multiple choice question"
         size="120"
         onChange={(e) => {
-          handleQuestionChange(multiple.id, e.target.value, mid);
+          handleQuestionChange(multiple.id, e.target.value);
         }}
         name="questionValue"
       />

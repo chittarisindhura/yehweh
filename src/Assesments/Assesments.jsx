@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import AssesmentsContainer from "./AsssesmentsContainer";
 const Assesments = () => {
-  const baseUrl = "https://yehwehnode.vercel.app/";
+  const baseUrl = "https://yehwehnode.vercel.app";
   const [assesment, setAssesment] = useState("");
   useEffect(() => {
     getAssignments();
@@ -12,7 +12,11 @@ const Assesments = () => {
 
   const getAssignments = async () => {
     const res = await axios.get(`${baseUrl}/assesment/get`, {
-      headers: { "Access-Control-Allow-Origin": "*" },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Headers": "content-type",
+      },
     });
     setAssesment(res.data);
   };

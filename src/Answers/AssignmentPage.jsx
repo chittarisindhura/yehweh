@@ -142,8 +142,8 @@ const AssignmentPage = () => {
       }
     }
   };
+  const baseUrl = "https://yehwehnode.vercel.app";
   const handleSubmit = async (title, type) => {
-    const baseUrl = "https://yehwehnode.vercel.app/";
     const nodeUrl = `${baseUrl}/assesment/sendAssesmentAnswer`;
     for (let [key, value] of Object.entries(multipleAnswer)) {
       if (value.multipleAnswer) {

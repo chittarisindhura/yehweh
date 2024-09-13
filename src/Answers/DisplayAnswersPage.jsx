@@ -4,14 +4,19 @@ import { useNavigate } from "react-router-dom";
 import AssesmentAnswer from "./AssesmentAnswer";
 import "./Answers.css";
 const DisplayAnswersPage = () => {
-  const baseUrl = "https://yehwehnode.vercel.app/";
+  const baseUrl = "https://yehwehnode.vercel.app";
   const [assesmentAnswer, setAssesmentAnswer] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     getAssignments();
   }, []);
   const getAssignments = async () => {
-    const res = await axios.get(`${baseUrl}/assesment/getAnswers`);
+    const res = await axios.get(`${baseUrl}/assesment/getAnswers`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    });
     setAssesmentAnswer(res.data);
   };
   const handleClick = (id) => {

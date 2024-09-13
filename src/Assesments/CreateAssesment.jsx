@@ -1,7 +1,6 @@
 import react, { useState } from "react";
 import axios from "axios";
 import MultipleChoice from "./MulipleQuestionCreation";
-import { v4 as uuidv4 } from "uuid";
 import Essay from "./Essay";
 import ShortAnswer from "./ShortAnswer";
 import Boolean from "./Boolean";
@@ -263,7 +262,7 @@ const CreateAssesments = () => {
       }
     }
   };
-  console.log("m", multipleArray, baseUrl);
+  console.log("m", baseUrl);
   const sendAssignment = async () => {
     const ApiUrl = `${baseUrl}/assesment/create`;
     const type = survey ? survey : "Quizz";
@@ -344,7 +343,6 @@ const CreateAssesments = () => {
       essay: essayArray,
       boolean: booleanArray,
     };
-    console.log("res", assesmentData);
     const res = await axios.post(ApiUrl, assesmentData);
     if (res.status == 200) {
       setTasks([...tasks, assesmentData]);
